@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+      <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
     </head>
     <body>
         <div class="container">
+          
+          <form class="well form-horizontal" method="post" action="login.php"  id="contact_form">
+            <fieldset>
+                
+                <!-- Form Name -->
+                <legend>
+                  
+                <h2><b>Login</b></h2>
         
-            
-            <div class="forms">
-                <div class="form-content">
-                  <div class="login-form">
+                </legend><br>
+                
+                
+                
                     
-                  <form name='loginform' method='post' action="login.php">
+                
                     
                     <div class="input-boxes">
                       
                       <div class="input-box"> Login <br>
                         <i class="fas fa-envelope"></i>
-                        <input type="text" name="email" placeholder="Enter username" required>
-                      </div>
+                        <input type="text" name="Login" placeholder="Enter username" required>
+                      </div><br>
                       <div class="input-box"> Password<br>
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="national_id" placeholder="Enter password" required>
-                      </div>
+                        <input type="text" name="Password" placeholder="Enter password" required>
+                      </div><br>
                       <!--<div class="text"><a href="#">Forgot password?</a></div>--> 
                       <div class="button input-box">
                         <input type="submit" name="Submit" id="Submit" value="Submit">
+                      </div><br>
+                      <div class="text sign-up-text">Don't have an account? <label><a href = "signup.html"> Signup now</a></label>
                       </div>
-                      <div class="text sign-up-text">Don't have an account? <label><a href = "register_page.html"> Signup now</a></label>
-                      </div>
-                </form>
-              </div>
                 
                     </div>
-              </form>
-            </div>
-            </div>
-            </div>
-          </div>
+            </fieldset>    
+                    
+          </form>
+            
+        </div>
     </body>
 </html>
