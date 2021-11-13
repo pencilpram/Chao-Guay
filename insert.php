@@ -119,6 +119,7 @@
         </div>
     </div>
     <?php
+    session_start();
     $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
     if (isset($_POST['add'])) {
         $moviename = $_POST['moviename'];
@@ -134,6 +135,7 @@
         $target_file = $target_dir . basename($_FILES["movieimage"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $idadmin = $_SESSION['idadmin'];
         // Check if image file is a actual image or fake image
         $check = getimagesize($_FILES["movieimage"]["tmp_name"]);
         if ($check !== false) {
