@@ -30,7 +30,7 @@
                         <div class="form-group row"> 
                             <label class="col-2 col-form-label" style="color: #685F5F;">MOVIE NAME</label>
                             <div class="col-3">
-                                <input type="text" class="form-control" style="background-color:#161719; color:#EDB63C; font-size:25px;">
+                                <input type="text" class="form-control" name="moviename" style="background-color:#161719; color:#EDB63C; font-size:25px;">
                             </div>
                             <label class="col-2 col-form-label" style="color: #685F5F;">THEATRE NUMBER</label>
                             <div class="col-3">
@@ -46,7 +46,7 @@
                         <div class="form-group row">
                             <label class="col-2 col-form-label" style="color: #685F5F;">GENRE</label>
                             <div class="col-3">
-                                <input type="text" class="form-control" style="background-color:#161719; color:#EDB63C; font-size:25px;">
+                                <input type="text" class="form-control" name="genre" style="background-color:#161719; color:#EDB63C; font-size:25px;">
                             </div>
                             <label class="col-2 col-form-label" style="color: #685F5F">THEATRE TYPES</label>
                             <div class="col-3">
@@ -61,11 +61,11 @@
                         <div class="form-group row">
                             <label class="col-2 col-form-label" style="color: #685F5F;">MINUTES</label>
                             <div class="col-3">
-                                <input type="text" class="form-control" style="background-color:#161719; color:#EDB63C; font-size:25px;">
+                                <input type="text" class="form-control" name="minutes" style="background-color:#161719; color:#EDB63C; font-size:25px;">
                             </div>
                             <label class="col-2 col-form-label" style="color: #685F5F;">SELECT TIMES</label>
                             <div class="col-3">
-                                <select class="form-control" style="background-color:#161719; color:#EDB63C; font-size:25px;" name="theatretypes">
+                                <select class="form-control" style="background-color:#161719; color:#EDB63C; font-size:25px;" name="times">
                                     <option>10.30</option>
                                     <option>11.00</option>
                                     <option>11.30</option>
@@ -118,6 +118,47 @@
             </div>
         </div>
     </div>
+    <?php
+    $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
+    if (isset($_POST['add'])) {
+        $moviename = $_POST['moviename'];
+        $moviename_escape = mysqli_real_escape_string($mysqli, $moviename);
+        $genre = $_POST['genre'];
+        $genre_escape = mysqli_real_escape_string($mysqli, $genre);
+        $minutes = $_POST['minutes'];
+        $status = $_POST['status'];
+        $theatrenumber = $_POST['theatrenumber'];
+        $theatretypes = $_POST['theatretypes'];
+        $times = $_POST['times'];
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["movieimage"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES["movieimage"]["tmp_name"]);
+        if ($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["bookimage"]["tmp_name"], $target_file)) {
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
+        $query1 = "INSERT INTO movies (moviename,genre,minutes,linkimage) VALUES ('$moviename_escape','$genre_escape','$minutes','$target_file')";
+        $result1 = $mysqli->query($query1);
+        if ($result1) {
+        } else {
+            echo $mysqli->error;
+        }
+    ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
