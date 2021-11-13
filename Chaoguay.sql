@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2021 at 04:08 PM
+-- Generation Time: Nov 13, 2021 at 04:48 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -45,6 +45,7 @@ CREATE TABLE `admin` (
 CREATE TABLE `beverage` (
   `idfood` int(20) NOT NULL,
   `foodname` varchar(100) NOT NULL,
+  `food_type` varchar(100) NOT NULL,
   `prices` int(50) NOT NULL,
   `snackstatus` tinyint(4) NOT NULL,
   `idadmin` int(20) NOT NULL,
@@ -82,6 +83,7 @@ CREATE TABLE `movie` (
   `movie_name` varchar(250) NOT NULL,
   `genre` varchar(45) NOT NULL,
   `minutes` int(20) NOT NULL,
+  `link_image` varchar(150) NOT NULL,
   `idadmin` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -214,7 +216,7 @@ ALTER TABLE `theatre`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idadmin` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idadmin` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `beverage`
