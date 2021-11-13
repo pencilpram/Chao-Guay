@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row" style="text-align: center;">
                 <div class="col-md-12">
-                    <form id="c_form-h" style="font-size: 25px; text-align:center;">
+                    <form id="c_form-h" method="POST" action="insert.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
                         <div class="form-group row"> 
                             <label class="col-2 col-form-label" style="color: #685F5F;">MOVIE NAME</label>
                             <div class="col-3">
@@ -146,13 +146,13 @@
             echo "Sorry, your file was not uploaded.";
             // if everything is ok, try to upload file
         } else {
-            if (move_uploaded_file($_FILES["bookimage"]["tmp_name"], $target_file)) {
+            if (move_uploaded_file($_FILES["movieimage"]["tmp_name"], $target_file)) {
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
         }
 
-        $query1 = "INSERT INTO movies (moviename,genre,minutes,linkimage) VALUES ('$moviename_escape','$genre_escape','$minutes','$target_file')";
+        $query1 = "INSERT INTO movie (movie_name,genre,minutes,linkimage) VALUES ('$moviename_escape','$genre_escape','$minutes','$target_file')";
         $result1 = $mysqli->query($query1);
         if ($result1) {
         } else {
