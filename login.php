@@ -1,5 +1,5 @@
 <?php
-$con= mysqli_connect("localhost","root","","Chaoguay") or die("Error: " . mysqli_error($con));
+$con= mysqli_connect("localhost","root","","ChaoGuay") or die("Error: " . mysqli_error($con));
 mysqli_query($con, "SET NAMES 'utf8' "); 
 session_start();
         if(isset($_POST['Submit'])){
@@ -18,7 +18,7 @@ session_start();
 
                     $row = mysqli_fetch_array($result);
                     $_SESSION['idadmin']=$row['idadmin'];
-                        Header("Location: booking.html");
+                        Header("Location: home.php");
                     }
 
                 }

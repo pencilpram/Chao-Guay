@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -119,17 +122,20 @@
         </div>
     </div>
     <?php
-    session_start();
     $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
     if (isset($_POST['add'])) {
         $moviename = $_POST['moviename'];
-        $moviename_escape = mysqli_real_escape_string($mysqli, $moviename);
         $genre = $_POST['genre'];
-        $genre_escape = mysqli_real_escape_string($mysqli, $genre);
         $minutes = $_POST['minutes'];
-        $status = $_POST['status'];
+        if ($_POST['status'] == 'ACTIVE'){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
         $theatrenumber = $_POST['theatrenumber'];
         $theatretypes = $_POST['theatretypes'];
+        date_default_timezone_set("Asia/Bangkok");
+        $date = date("Y-m-d");
         $times = $_POST['times'];
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["movieimage"]["name"]);
@@ -154,9 +160,16 @@
             }
         }
 
-        $query1 = "INSERT INTO movie (movie_name,genre,minutes,linkimage) VALUES ('$moviename_escape','$genre_escape','$minutes','$target_file')";
+        $query1 = "INSERT INTO movie (movie_name,genre,minutes,idadmin,linkimage) VALUES ('$moviename','$genre','$minutes','$idadmin','$target_file')";
+        $query2 = "INSERT INTO movieschedule (moviename,date,time,status,idmovie) VALUES ('$moviename','$date','$times','$status','$idadmin')";
         $result1 = $mysqli->query($query1);
+        $result2 = $mysqli->query($query2);
         if ($result1) {
+            if($result2){
+                Header("Location: movielist.php");
+            }else{
+                echo $mysqli->error;
+            }
         } else {
             echo $mysqli->error;
         }
