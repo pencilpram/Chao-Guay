@@ -1,5 +1,5 @@
 <?php 
-$con= mysqli_connect("localhost","root","","Chaoguay") or die("Error: " . mysqli_error($con));
+$con= mysqli_connect("localhost","root","","ChaoGuay") or die("Error: " . mysqli_error($con));
 mysqli_query($con, "SET NAMES 'utf8' "); 
 session_start();
 
