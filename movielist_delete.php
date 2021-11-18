@@ -68,7 +68,8 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
                     echo "<td>".$row["status"]."</td>"; //4. Change to get user group
                     echo "<td>" . $row["adminfirstname"] . "</td>";    
                 
-        
+                    echo '<td><img src="images/delete.png" width="24" height="24"></td>';
+                    
                     echo "</tr>";
                 }
                 } else {
