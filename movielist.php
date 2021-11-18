@@ -1,3 +1,8 @@
+<?php
+// Connect to the database
+$mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rationale&display=swap" rel="stylesheet">
+    
 </head>
 
 <body class="bg-dark" style="font-family: Rationale; text-align:center;">
@@ -27,7 +33,53 @@
         </div>
     </div>
     <div class="py-5">
+        <div class="col-10" style="background-color:#EDB63C; text-align:center; position:relative">
+            <table>
+                <col width="15%">
+                <col width="30%">
+                <col width="30%">
+                <col width="20%">
+                <col width="5%">
+                
+                <tr>
+                    <th>Movie ID</th> 
+                    <th>Movie Name</th>
+                    <th>Genre</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                    <th>Admin Name</th>
+                </tr>
+                <?php
+                
+                // Exercise 2
+                
+                // 1. Change $query to get all fields
+                $query = "SELECT ms.idmovie,m.movie_name,m.genre,m.minutes,ms.status,a.adminfirstname FROM movie m,movieschedule ms,admin a";
+
+                $result = $mysqli->query($query);
+
+                if ($result){
+                    while($row=$result->fetch_array()){
+                    echo "<tr>";
+                    echo "<td>" . $row["idmovie"] . "</td>";
+                    echo "<td>".$row["movie_name"]."</td>"; //2. Change to get first_name with last_name
+                    echo "<td>" . $row["genre"] . "</td>";
+                    echo "<td>".$row["minutes"]."</td>"; //3. Change to get email
+                    echo "<td>".$row["status"]."</td>"; //4. Change to get user group
+                    echo "<td>" . $row["adminfirstname"] . "</td>";    
+                
+                    echo '<td><img src="images/Modify.png" width="24" height="24"></td>';
+                    echo '<td><img src="images/delete.png" width="24" height="24"></td>';
+                    echo "</tr>";
+                }
+                } else {
+                echo "Error:" . $mysqli->error;
+                }
+                ?>  
+            </table>
+        </div>
     </div>
+    
 
 </body>
 </html>
