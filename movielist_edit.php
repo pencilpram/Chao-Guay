@@ -67,8 +67,11 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
                     echo "<td>".$row["minutes"]."</td>"; //3. Change to get email
                     echo "<td>".$row["status"]."</td>"; //4. Change to get user group
                     echo "<td>" . $row["adminfirstname"] . "</td>";    
-                
-                    echo '<td><img src="images/Modify.png" width="24" height="24"></td>';
+                    
+            
+                    echo '<td><a class="btn" href="editmovie.php"
+                    style=""><img
+                        src="images/Modify.png" style="width:40px; height:40px;"></a></td>';
                     
                     echo "</tr>";
                 }
