@@ -36,8 +36,8 @@ if (!$result) {
             </div>
         </div>
     </div>
-    <div class="col" style="width: 700px;">
-        <div class="py-5" style="width: 700px;">
+    <div class="col" style="width: 700px;top:-30%;">
+        <div class="py-5" style="width: 700px; top:-40%;">
             <div class="container">
                 <div class="row" style="text-align: left;">
                     <h1 style="position: absolute;width: 569px;height: 82px;left: 119px;top: 202px;font-family: Rationale;font-style: normal;font-weight: normal;font-size: 70px;line-height: 81px;display: flex;align-items: center;color: #EDB63C;">
@@ -76,9 +76,10 @@ if (!$result) {
             </div>
         </div>
     </div>
-    <div class="col" style="width: 700px;">
+    <div class="col" style="width: 700px;left:50%;top:-57%;">
         <div class="py-5">
-            <span style="position: relative;
+            <form id="c_form-h" method="POST" action="setting.php">
+                <span style="position: relative;
 width: 206px;
 height: 82px;
 left: 76px;
@@ -92,11 +93,144 @@ line-height: 58px;
 display: flex;
 align-items: center;
 
-color: #000000;">USERNAME</span>
+color: #000000;">FIRSTNAME</span>
+                <input type="text" style="position: absolute;
+width: 318px;
+height: 55px;
+left: 327px;
+top: 203px;
+
+background: #FFFFFF;
+border: 2px solid #161719;
+box-sizing: border-box;font-size:25px;" name="firstname">
+                <span style="position: absolute;
+width: 211px;
+height: 82px;
+left: 76px;
+top: 284px;
+
+font-family: Rationale;
+font-style: normal;
+font-weight: normal;
+font-size: 50px;
+line-height: 58px;
+display: flex;
+align-items: center;
+
+color: #000000;">LASTTNAME</span>
+                <input type="text" style="position: absolute;
+width: 318px;
+height: 55px;
+left: 327px;
+top: 295px;
+
+background: #FFFFFF;
+border: 2px solid #161719;
+box-sizing: border-box;font-size:25px;" name="lastname">
+                <span style="position: absolute;
+width: 211px;
+height: 82px;
+left: 76px;
+top: 366px;
+
+font-family: Rationale;
+font-style: normal;
+font-weight: normal;
+font-size: 50px;
+line-height: 58px;
+display: flex;
+align-items: center;
+
+color: #000000;">PASSWORD</span>
+                <input type="text" style="position: absolute;
+width: 318px;
+height: 55px;
+left: 327px;
+top: 379px;
+
+background: #FFFFFF;
+border: 2px solid #161719;
+box-sizing: border-box;font-size:25px;" name="password">
+                <input type="submit" value="UPDATE" name="update1" style="position: absolute;
+width: 188px;
+height: 48px;
+left: 457px;
+top: 464px;
+font-size:30px;
+background: #F01B1B;
+color:#FFFFFF;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 11px;">
+                <span style="position: absolute;
+width: 211px;
+height: 140px;
+left: 76px;
+top: 567px;
+
+font-family: Rationale;
+font-style: normal;
+font-weight: normal;
+font-size: 50px;
+line-height: 58px;
+display: flex;
+align-items: center;
+
+color: #000000;">CURRENT PASSWORD</span>
+                <input type="text" style="position: absolute;
+width: 318px;
+height: 55px;
+left: 327px;
+top: 600px;
+
+background: #FFFFFF;
+border: 2px solid #161719;
+box-sizing: border-box;font-size:25px;" name="currentpass">
+                <span style="position: absolute;
+width: 211px;
+height: 140px;
+left: 76px;
+top: 707px;
+
+font-family: Rationale;
+font-style: normal;
+font-weight: normal;
+font-size: 50px;
+line-height: 58px;
+display: flex;
+align-items: center;
+
+color: #000000;">NEW PASSWORD</span>
+                <input type="text" style="position: absolute;
+width: 318px;
+height: 55px;
+left: 327px;
+top: 744px;
+
+background: #FFFFFF;
+border: 2px solid #161719;
+box-sizing: border-box;font-size:25px;" name="newpass">
+                <input type="submit" value="UPDATE" name="update2" style="position: absolute;
+width: 188px;
+height: 48px;
+left: 466px;
+top: 881px;
+font-size:30px;
+background: #F01B1B;
+color:#FFFFFF;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 11px;">
+            </form>
         </div>
     </div>
+    <?php
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $query2 = "UPDATE admin SET adminfirstname = '$firstname', adminlastname = '$lastname' WHERE idadmin = '$idadmin'";
+    $result2 = $mysqli->query($query2);
 
-
+    ?>
 </body>
 
 </html>
