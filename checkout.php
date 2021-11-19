@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
     </head>
 
-<body>
+<body class="bg-dark" style="font-family: Rationale; text-align:center;">
     <div class="container">
     
         <form class="well form-horizontal" method="post" action="signup.php"  id="contact_form">
@@ -17,21 +17,22 @@
         
                 <div class="py-5"  >
                     <div class="container">
-                        <div class="row">
+                        <div class="row" >
                             <div class="col-md-12"><a class="btn btn-primary" href="login.html"
                                 style="background-color:#161719; border:1px solid black; color:#161719;">
                                 <img
                                 src="images/return.png" style="width:40px; height:40px;"></a>
                             </div>
                             <div class="text-center mx-auto col-md-12">
-                                <h1>Checkout</h1>
+                            
                             </div>
                         </div>
+                        <h1 class="text-warning">Checkout</h1>
                     </div>        
                     <div class="row">
                         <div class="col-md-4 p-3">
-                            <div class="card text-center text-dark">
-                                <div class="card-body p-4">
+                            <div class="card text-center text-dark" style="background-color: #EDB63C;">
+                                <div class="card-body p-4" >
                                 <h3></h3>
                                 <a 
                                 style="background-color:#161719; border:1px solid black; color:#161719;"><img
@@ -42,7 +43,7 @@
                         </div>
                     </div>
                         <div class="col-md-4 p-3">
-                            <div class="card text-center text-dark">
+                            <div class="card text-center text-dark" style="background-color: #EDB63C;">
                                 <div class="card-body p-4">
                                     <div class="input-boxes">
                             
@@ -75,7 +76,7 @@
                         </div>
                     <!--promotion-->
                         <div class="col-md-4 p-3">
-                            <div class="card text-center text-dark">
+                            <div class="card text-center text-dark" style="background-color: #EDB63C;">
                                 <div class="card-body p-4">
                                     <label>Use Promotion</label>
                                     <select name="promotion" class="form-control selectpicker">
@@ -88,7 +89,7 @@
                                 </div>
                             </div>   
                             <!--payment-->
-                            <div class="card text-center text-dark">
+                            <div class="card text-center text-dark" style="background-color: #EDB63C;">
                                 <div class="card-body p-4">
                                     <label>Payment Method</label>
                                     <select name="payment" class="form-control selectpicker">
@@ -101,8 +102,9 @@
                                     </select>
                                 </div>
                             </div>  
-                            <div class="button input-box">
-                                <input type="submit" name="Submit" id="Submit" value="Proceed">
+                            <br>
+                            <div class="button input-box ">
+                                <input class="btn-dark text-warning" type="submit" name="Submit" id="Submit" value="Proceed">
                             </div><br> 
                         </div>
                     
