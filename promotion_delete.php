@@ -22,7 +22,7 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
     <div class="py-5">
         <div class="container" style="text-align:left; position:relative;">
             <div class="row" style="text-align: left; width:1290px; position:relative;">
-                <div class="col-3"><a class="btn btn-primary" href="home.php"
+                <div class="col-3"><a class="btn btn-primary" href="promotion.php"
                         style="background-color:#161719; border:1px solid black; color:#161719;"><img
                             src="images/return.png" style="width:40px; height:40px;"></a>
                 </div>
