@@ -3,57 +3,6 @@ session_start();
 // Connect to the database
 $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
 
-if ($mysqli->connect_errno) {
-echo $mysqli->connect_error;
-}
-
-if (isset($_POST["add"])){
-    if (isset($_POST['add'])) {
-        $moviename = $_POST['moviename'];
-        $genre = $_POST['genre'];
-        $minutes = $_POST['minutes'];
-        if ($_POST['status'] == 'ACTIVE') {
-            $status = 1;
-        } else {
-            $status = 0;
-        }
-        $theatrenumber = $_POST['theatrenumber'];
-        $theatretypes = $_POST['theatretypes'];
-        date_default_timezone_set("Asia/Bangkok");
-        //$today = CURRENT_TIMESTAMP();
-        $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["movieimage"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $idadmin = $_SESSION['idadmin'];
-        // Check if image file is a actual image or fake image
-        $check = getimagesize($_FILES["movieimage"]["tmp_name"]);
-        if ($check !== false) {
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-            // if everything is ok, try to upload file
-        } else {
-            if (move_uploaded_file($_FILES["movieimage"]["tmp_name"], $target_file)) {
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-            }
-        }
- 
-  $update_sql = "UPDATE movie SET moviename='$moviename',genre='$genre', minutes='$minutes',status='$status',theatrenumber='$theatrenumber',theatretype='$theatretypes',linkimage='$target_file' WHERE moviename = '$moviename'";
-  $result = $mysqli->query($update_sql);
- 
-  if ($result) {
-      Header("Location: movielist.php");
-  } else {
-      echo $mysqli->error;
-  }
-}
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,7 +29,7 @@ if (isset($_POST["add"])){
         <div class="container">
             <div class="row" style="text-align: center;">
                 <div class="col-md-12">
-                    <form id="c_form-h" method="POST" action="editmovie.php?moviename=<?php echo "$moviename" ?>" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
+                    <form id="c_form-h" method="POST" action="editmovie.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
                         <div class="form-group row">
                             <label class="col-2 col-form-label" style="color: #685F5F;">MOVIE NAME</label>
                             <div class="col-3">
@@ -147,5 +96,56 @@ if (isset($_POST["add"])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+<?php
 
+
+
+if (isset($_POST["add"])){
+    if (isset($_POST['add'])) {
+        $moviename = $_POST['moviename'];
+        $genre = $_POST['genre'];
+        $minutes = $_POST['minutes'];
+        if ($_POST['status'] == 'ACTIVE') {
+            $status = 1;
+        } else {
+            $status = 0;
+        }
+        $theatrenumber = $_POST['theatrenumber'];
+        $theatretypes = $_POST['theatretypes'];
+        date_default_timezone_set("Asia/Bangkok");
+        //$today = CURRENT_TIMESTAMP();
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["movieimage"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $idadmin = $_SESSION['idadmin'];
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES["movieimage"]["tmp_name"]);
+        if ($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["movieimage"]["tmp_name"], $target_file)) {
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+ 
+  $update_sql = "UPDATE movie SET moviename='$moviename',genre='$genre', minutes='$minutes',status='$status',theatrenumber='$theatrenumber',theatretype='$theatretypes',linkimage='$target_file' WHERE movie_name = '$moviename'";
+  $result = $mysqli->query($update_sql);
+ 
+  if ($result) {
+      Header("Location: movielist.php");
+  } else {
+      echo $mysqli->error;
+  }
+}
+}
+?>
 </html>
