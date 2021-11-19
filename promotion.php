@@ -15,19 +15,25 @@ session_start();
 </head>
 
 <body class="bg-dark" style="font-family: Rationale; text-align:center;">
+
     <div class="py-5">
+        <div class="row" >
+                <div class="col-md-12"><a class="btn btn-primary" href="home.php"
+                    style="background-color:#161719; border:1px solid black; color:#161719;">
+                    <img
+                    src="images/return.png" style="width:40px; height:40px;"></a>
+                </div>
+                <div class="text-center mx-auto col-md-12">
+                            
+                </div>
+            </div>
         <div class="container" style="margin-top: 20%; margin-left:10%; margin-left:16%;">
             <div class="row">
-                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; background-image:'images/ticket.png';border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="booking.html">Booking</a>
+                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; background-image:'images/ticket.png';border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="promotion_insert.php">Insert</a>
                 </div>
-                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="#">Beverages</a>
+                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="promotion_delete.php">Delete</a>
                 </div>
-                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="movies.html">Movies</a>
-                </div>
-                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="promotion.php">Promotion</a>
-                </div>
-                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="setting.php">Setting</a>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -40,11 +46,7 @@ session_start();
             <div class="collapse navbar-collapse" id="navbar11">
             </div>
         </div>
-        <div style="height:60px; width:60px; background-color:#EDB63C; border:1px solid black; color:#161719; border-radius:5px;">
-            <form role="form" method="post" action="logout.php">
-                <input type="image" src="images/logout.png" style="height: 40px; width:40px; margin-top:20%;">
-            </form>
-        </div>
+        
     </nav>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
