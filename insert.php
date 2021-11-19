@@ -125,7 +125,7 @@ session_start();
                 echo "Sorry, there was an error uploading your file.";
             }
         }
-
+        //something
         $query1 = "INSERT INTO movie (movie_name,genre,minutes,dateandtime,status,theatrenumber,theatretype,idadmin,linkimage) VALUES ('$moviename','$genre','$minutes',CURRENT_TIMESTAMP(),'$status','$theatrenumber','$theatretypes','$idadmin','$target_file')";
         $result1 = $mysqli->query($query1);
         if ($result1) {
