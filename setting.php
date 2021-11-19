@@ -61,7 +61,7 @@ if (!$result) {
                 </div>
                 <div class="row">
                     <span style="position: absolute;width: 720px;height: 70px;left: 0px;top: 624px;background: #685F5F;border: 2px solid #161719;box-sizing: border-box;">
-                        <a href="#" style="position: absolute;width: 500px;height: 70px;left: 20%;top: 0px;font-family: Rationale;font-style: normal;font-weight: normal;font-size: 40px;line-height: 58px;display: flex;align-items: center;text-align: center;color: #EDB63C;">
+                        <a href="setting.php" style="position: absolute;width: 500px;height: 70px;left: 20%;top: 0px;font-family: Rationale;font-style: normal;font-weight: normal;font-size: 40px;line-height: 58px;display: flex;align-items: center;text-align: center;color: #EDB63C;">
                             ACCOUNT INFORMATION
                         </a>
                     </span>
@@ -117,7 +117,7 @@ line-height: 58px;
 display: flex;
 align-items: center;
 
-color: #000000;">LASTTNAME</span>
+color: #000000;">LASTNAME</span>
                 <input type="text" style="position: absolute;
 width: 318px;
 height: 55px;
@@ -227,9 +227,24 @@ border-radius: 11px;">
     <?php
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $query2 = "UPDATE admin SET adminfirstname = '$firstname', adminlastname = '$lastname' WHERE idadmin = '$idadmin'";
-    $result2 = $mysqli->query($query2);
-
+    $checkpassword = $_POST['password'];
+    $curpass = $_POST['currentpass'];
+    $newpass = $_POST['newpass'];
+    if (isset($_POST['update1'])){
+        if ($checkpassword == $admin['adminpassword']){
+            $query2 = "UPDATE admin SET adminfirstname = '$firstname', adminlastname = '$lastname' WHERE idadmin = '$idadmin'";
+            $result2 = $mysqli->query($query2);
+        }else{
+            //echo "PASSWORD IS NOT MATCH";
+        }
+    }else{
+        if ($curpass == $admin['adminpassword']){
+            $query3 = "UPDATE admin SET adminpassword = '$newpass' WHERE idadmin = '$idadmin'";
+            $result3 = $mysqli->query($query3);
+        }else{
+            //echo "PASSWORD IS NOT MATCH";
+        }
+    }
     ?>
 </body>
 
