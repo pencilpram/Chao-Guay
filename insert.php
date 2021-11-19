@@ -3,7 +3,6 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -129,7 +128,7 @@ session_start();
         VALUES ('$moviename','$genre','$minutes',CURRENT_TIMESTAMP(),'$status','$theatrenumber','$theatretypes','$idadmin','$target_file')";
         $result1 = $mysqli->query($query1);
         if ($result1) {
-            Header("Location: movielist.php");
+            header("Location: movielist.php");
         } else {
             echo $mysqli->error;
         }
