@@ -78,7 +78,7 @@ if (!$result) {
     </div>
     <div class="col" style="width: 700px;left:50%;top:-57%;">
         <div class="py-5">
-            <form id="c_form-h" method="POST" action="setting.php">
+            <form id="c_form-h" method="POST" action="editprofile.php">
                 <span style="position: relative;
 width: 206px;
 height: 82px;
@@ -224,28 +224,6 @@ border-radius: 11px;">
             </form>
         </div>
     </div>
-    <?php
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $checkpassword = $_POST['password'];
-    $curpass = $_POST['currentpass'];
-    $newpass = $_POST['newpass'];
-    if (isset($_POST['update1'])){
-        if ($checkpassword == $admin['adminpassword']){
-            $query2 = "UPDATE admin SET adminfirstname = '$firstname', adminlastname = '$lastname' WHERE idadmin = '$idadmin'";
-            $result2 = $mysqli->query($query2);
-        }else{
-            //echo "PASSWORD IS NOT MATCH";
-        }
-    }else{
-        if ($curpass == $admin['adminpassword']){
-            $query3 = "UPDATE admin SET adminpassword = '$newpass' WHERE idadmin = '$idadmin'";
-            $result3 = $mysqli->query($query3);
-        }else{
-            //echo "PASSWORD IS NOT MATCH";
-        }
-    }
-    ?>
 </body>
 
 </html>
