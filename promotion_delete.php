@@ -41,6 +41,7 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
                     <th scope="col">Promotion Name</th>
                     <th scope="col">Detail</th>
                     <th scope="col">Admin Name</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <?php
