@@ -64,7 +64,7 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
                     }
                     echo "<td class='col-2'>" . $row["adminfirstname"] . "</td>";
 
-                    echo '<td class="col-1"><a class="btn" href="editmovie.php"style="">';
+                    echo '<td class="col-1"><a class="btn" href="editmovie.php?idmovie=' . $row['idmovie'] . '">';
                     echo '<img src="images/Modify.png" style="width:40px; height:40px;"></a></td>';
 
                     echo "</tr>";
