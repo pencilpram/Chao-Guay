@@ -68,7 +68,7 @@ if (!$result) {
                 </div>
                 <div class="row">
                     <span style="position: absolute;width: 720px;height: 70px;left: 0px;top: 727px;background: #685F5F;border: 2px solid #161719;box-sizing: border-box;">
-                        <a href="#" style="position: absolute;width: 500px;height: 70px;left: 20%;top: 0px;font-family: Rationale;font-style: normal;font-weight: normal;font-size: 40px;line-height: 58px;display: flex;align-items: center;text-align: center;color: #EDB63C;">
+                        <a href="account_delete.php" style="position: absolute;width: 500px;height: 70px;left: 20%;top: 0px;font-family: Rationale;font-style: normal;font-weight: normal;font-size: 40px;line-height: 58px;display: flex;align-items: center;text-align: center;color: #EDB63C;">
                             DELETE ACCOUNT
                         </a>
                     </span>

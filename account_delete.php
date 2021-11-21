@@ -28,10 +28,26 @@ $admin = $result1->fetch_array();
             </div>
         </div>
     </div>
-    <div class="py-5">
+    <div class="py-5" style="margin-top:-4%;">
         <div class="container">
-            <span style="font-family: Rationale;font-style: normal;font-weight: normal;font-size: 50px;line-height: 58px;color: #EDB63C;">
-            USERNAME : <?php echo $admin['adminuser'] ?>
-        </span>
+            <form method="POST" action="delete.php">
+                <span style="font-family: Rationale;font-style: normal;font-weight: normal;font-size: 50px;line-height: 58px;color: #EDB63C;">
+                    Username : <?php echo $admin['adminuser'] ?>
+                </span>
+                <br><br>
+                <span style="font-family: Rationale;font-style: normal;font-weight: normal;font-size: 50px;line-height: 58px;color: #EDB63C;">
+                    Enter password
+                </span>
+                <br><br>
+                <input type="password" name="password" style="width: 499px;height: 55px;background: #FFFFFF;border: 5px solid #EDB63C;box-sizing: border-box;font-size:25px;">
+                <br><br><br><br>
+                <span style="font-family: Rationale;font-style: normal;font-weight: normal;font-size: 50px;line-height: 58px;color: #EDB63C;">
+                    Re-enter password
+                </span>
+                <br><br>
+                <input type="password" name="reenterpassword" style="width: 499px;height: 55px;background: #FFFFFF;border: 5px solid #EDB63C;box-sizing: border-box;font-size:25px;">
+                <br><br><br><br>
+                <input type="submit" value="DELETE" name="delete" style="width: 188px;height: 48px;font-size:30px;background: #F01B1B;color:#FFFFFF;border: 2px solid #000000;box-sizing: border-box;border-radius: 11px;">
+            </form>
         </div>
     </div>
