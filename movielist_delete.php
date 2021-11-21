@@ -54,7 +54,7 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
                 // Exercise 2
                 
                 // 1. Change $query to get all fields
-                $query = "SELECT m.idmovie,m.movie_name,m.genre,m.minutes,ms.status,a.adminfirstname FROM movie m,movieschedule ms,admin a";
+                $query = "SELECT m.idmovie,m.movie_name,m.genre,m.minutes,m.status,a.adminfirstname FROM movie m,admin a WHERE m.idadmin = a.idadmin";
 
                 $result = $mysqli->query($query);
 
