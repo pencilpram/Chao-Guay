@@ -79,11 +79,11 @@ if (!$result) {
     <div class="col" style="width: 700px;left:50%;top:-57%;">
         <div class="py-5">
             <form id="c_form-h" method="POST" action="editprofile.php">
-                <span style="position: relative;
+                <span style="position: absolute;
 width: 206px;
 height: 82px;
 left: 76px;
-top: 120px;
+top: 193px;
 
 font-family: Rationale;
 font-style: normal;
