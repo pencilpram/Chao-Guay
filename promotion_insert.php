@@ -28,14 +28,14 @@ session_start();
                 <div class="col-md-12">
                     <form id="c_form-h" method="POST" action="promotion_list.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
                         <div class="form-group row">
-                            <label class="col-2 col-form-label" style="color: #685F5F;">PROMOTION NAME</label>
+                            <label class="col-4 col-form-label" style="color: #685F5F;">PROMOTION NAME</label>
                             <div class="col-3">
                                 <input type="text" class="form-control" name="promotionname" style="background-color:#161719; color:#EDB63C; font-size:25px;">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-2 col-form-label" style="color: #685F5F;">PROMOTION DETAIL</label>
+                            <label class="col-4 col-form-label" style="color: #685F5F;">PROMOTION DETAIL</label>
                             <div class="col-3">
                                 <input type="text" class="form-control" name="promotiondetail" style="background-color:#161719; color:#EDB63C; font-size:25px;">
                             </div>
@@ -45,7 +45,7 @@ session_start();
                     
 
                         <div class="form-group row">
-                            <label class="col-2 col-form-label" style="color: #685F5F;">IMAGES</label>
+                            <label class="col-4 col-form-label" style="color: #685F5F;">IMAGES</label>
                             <div class="col-3" style="display: flex; justify-content: center; align-content: center; flex-direction: column;">
                                 <input class="form-control" type="file" name="promotionimage" style="background-color: #161719; color:#EDB63C; font-size:22px;width:730px;">
                             </div>
