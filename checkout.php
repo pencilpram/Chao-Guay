@@ -1,9 +1,9 @@
 <?php
 $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
-//$moviename = $_GET['moviename'];
-//$query1 = "SELECT * FROM movie WHERE movie_name = $moviename";
-//$result1 = $mysqli->query($query1);
-//$row = $result1->fetch_array();
+$idmovie = $_GET['idmovie'];
+$query1 = "SELECT * FROM movie WHERE idmovie = $idmovie";
+$result1 = $mysqli->query($query1);
+$row = $result1->fetch_array();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -48,6 +48,7 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
                         <div class="card text-center text-dark" style="background-color: #EDB63C;">
                             <div class="card-body p-4">
                                 <div class="input-boxes">
+
 
                                     <div class="input-box"> Movie Name <br>
                                         <span><?php echo $row['movie_name'] ?></span>
@@ -132,10 +133,11 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
                             <input class="btn-dark text-warning" type="submit" name="Submit" id="Submit" value="Proceed">
                         </div><br>
                     </div>
-
                 </div>
-            </fieldset>
-        </form>
+
+    </div>
+    </fieldset>
+    </form>
     </div>
 
 </body>
