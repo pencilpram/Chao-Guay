@@ -18,62 +18,58 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
     
 </head>
 
-<body class="bg-dark" style="font-family: Rationale; text-align:center;">
+
+
+<body class="bg-dark" style="font-family: Rationale; text-align:center;text-transform:uppercase;">
     <div class="py-5">
         <div class="container" style="text-align:left; position:relative;">
             <div class="row" style="text-align: left; width:1290px; position:relative;">
-                <div class="col-3"><a class="btn btn-primary" href="home.php"
-                        style="background-color:#161719; border:1px solid black; color:#161719;"><img
-                            src="images/return.png" style="width:40px; height:40px;"></a>
+                <div class="col-3"><a class="btn btn-primary" href="promotion.php" style="background-color:#161719; border:1px solid black; color:#161719;"><img src="images/return.png" style="width:40px; height:40px;"></a>
                 </div>
-                <div class="col-9" style="background-color:#EDB63C; text-align:center;">
-                <h1>PROMOTIONS</h1>
+                <div class="col-9" style="background-color:#EDB63C; text-align:center;margin-top:-6%;">
+                    <span style="font-size:40px;top:30%;position:relative;">PROMOTIONS</span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="py-5">
-        <div class="col-5" style="background-color:#EDB63C; text-align:center; position:relative">
-            <table>
-                <col width="25%">
-                <col width="25%">
-                <col width="25%">
-                <col width="25%">
-                
+
+    <div class="row justify-content-center mt-3" style="max-width:100%">
+        <table class="col-10 table table-striped table-hover" style="width:100%">
+            <thead class="table" style="background-color: #EDB63C; color:#161719">
                 <tr>
-                    <th>Promotion ID</th> 
-                    <th>Promotion Name</th>
-                    <th>Detail</th>
-                    <th>Admin Name</th>
+                    <th scope="col">Promotion ID</th>
+                    <th scope="col">Promotion Name</th>
+                    <th scope="col">Detail</th>
+                    <th scope="col">Admin Name</th>
                 </tr>
-                <?php
-                
-                // Exercise 2
-                
-                // 1. Change $query to get all fields
-                $query = "SELECT p.idpromotion,p.promotionname,p.detail,a.adminfirstname FROM promotion p,admin a";
+            </thead>
+            <?php
+            echo '<tbody style="background-color:#EDB;">';
+            // 1. Change $query to get all fields
+            $query = "SELECT p.idpromotion,p.promotionname,p.detail,a.adminfirstname FROM promotion p,admin a WHERE p.idadmin = a.idadmin";
 
-                $result = $mysqli->query($query);
+            $result = $mysqli->query($query);
 
-                if ($result){
-                    while($row=$result->fetch_array()){
+            if ($result) {
+                while ($row = $result->fetch_array()) {
                     echo "<tr>";
-                    echo "<td>" . $row["idpromotion"] . "</td>";
-                    echo "<td>".$row["promotionname"]."</td>"; //2. Change to get first_name with last_name
-                    echo "<td>" . $row["detail"] . "</td>";
-                    echo "<td>" . $row["adminfirstname"] . "</td>";    
-                
-        
+                    echo "<td class='col-1'>" . $row["idpromotion"] . "</td>";
+                    echo "<td class='col-3'>" . $row["promotionname"] . "</td>"; //2. Change to get first_name with last_name
+                    echo "<td class='col-2'>" . $row["detail"] . "</td>";
+                    echo "<td class='col-1'>" . $row["adminfirstname"] . "</td>"; //3. Change to get email
+
+                    
                     echo "</tr>";
                 }
-                } else {
+            } else {
                 echo "Error:" . $mysqli->error;
-                }
-                ?>  
-            </table>
-        </div>
+            }
+            echo '</tbody>';
+            ?>
+        </table>
     </div>
-    
+
 
 </body>
+
 </html>
