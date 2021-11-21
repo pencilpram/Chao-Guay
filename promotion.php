@@ -22,9 +22,9 @@
     <div class="py-5">
         <div class="container">
             <div class="row" style="margin-top:8%;">
-                <div class="col-md-6"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:11%;" href="insert.php">INSERT</a>
+                <div class="col-md-6"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:11%;" href="promotion_insert.php">INSERT</a>
                 </div>
-                <div class="col-md-6"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:11%;" href="movielist_delete.php">DELETE</a>
+                <div class="col-md-6"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:11%;" href="promotion_delete.php">DELETE</a>
                 </div>
             </div>
         </div>
