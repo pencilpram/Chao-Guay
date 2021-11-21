@@ -1,7 +1,7 @@
 <?php
 $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
 if (isset($_POST['Submit'])){
-    
+    $idmovie 
 }
 ?>
 <!DOCTYPE html>

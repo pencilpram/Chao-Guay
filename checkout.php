@@ -1,4 +1,5 @@
 <?php
+session_start();
 $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
 $idmovie = $_GET['idmovie'];
 $query1 = "SELECT * FROM movie WHERE idmovie = $idmovie";
@@ -19,7 +20,7 @@ $row = $result1->fetch_array();
 <body class="bg-dark" style="font-family: Rationale; text-align:center;text-transform:uppercase;">
     <div class="container">
 
-        <form class="well form-horizontal" method="post" action="ticket.php" id="contact_form">
+        <form class="well form-horizontal" method="post" action="checkout.php" id="contact_form">
             <fieldset>
 
                 <!--Black Widow-->
@@ -54,7 +55,10 @@ $row = $result1->fetch_array();
                                         <span><?php echo $row['movie_name'] ?></span>
                                     </div><br>
                                     <div class="input-box"> Seat No. <br>
-                                        <input type="text" name="seat_no" placeholder="A-1" required>
+                                        <input type="text" name="seat_no" placeholder="1-30" required>
+                                    </div><br>
+                                    <div class="input-box"> Seat Row. <br>
+                                        <input type="text" name="row" placeholder="A-F" required>
                                     </div><br>
                                     <div class="input-box"> Cinema Type <br>
                                         <span><?php echo $row['theatretype'] ?></span>
@@ -139,7 +143,23 @@ $row = $result1->fetch_array();
     </fieldset>
     </form>
     </div>
-
+    <?php
+    if (isset($_POST['Submit'])){
+        $moviename = $row['movie_name'];
+        $noseat = $_POST['seat_no'];
+        $rowseat = $_POST['row'];
+        $type = $row['theatretype'];
+        $theatreno = $row['theatrenumber'];
+        $times = $_POST['times'];
+        $promo = $_POST['promotion'];
+        $pay = $_POST['payment'];
+        $idadmin = $_SESSION['idadmin'];
+        
+        
+        $insert = "INSERT INTO bookingticket (movie_name,row,seat_no,date,time,theatre_no,theatretype,idadmin VALUES ($moviename,$rowseat,$noseat,$times,$theatreno,$type,$idadmin)";
+        $insert_result = $mysqli->query($inset);
+    }
+    ?>
 </body>
 
 </html>
