@@ -20,7 +20,7 @@ session_start();
             <div class="row">
                 <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; background-image:'images/ticket.png';border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="booking_home.html">Booking</a>
                 </div>
-                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="beveragemenu.html">Beverages</a>
+                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="bevhome.html">Beverages</a>
                 </div>
                 <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="movies.html">Movies</a>
                 </div>
