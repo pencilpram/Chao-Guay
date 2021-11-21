@@ -24,7 +24,7 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
     </div>
 </head>
 
-<body class="bg-dark" style="font-family: Rationale; text-align:center;">
+<body class="bg-dark" style="font-family: Rationale; text-align:center;text-transform:uppercase;">
 
     <div class="row">
         <div class="col-4">
