@@ -40,7 +40,7 @@ if ($uploadOk == 0) {
 if (isset($_POST["add"])){
     
  
-  $update_sql = "UPDATE movie SET movie_name='$moviename',genre='$genre', minutes='$minutes',status='$status',theatrenumber='$theatrenumber',theatretype='$theatretypes',linkimage='$target_file' WHERE idmovie='$idmovie'";
+  $update_sql = "UPDATE movie SET movie_name='$moviename',genre='$genre', minutes='$minutes',status='$status',theatrenumber='$theatrenumber',theatretype='$theatretypes',linkimage='$target_file' ";
   $result = $mysqli->query($update_sql);
  
   if ($result) {

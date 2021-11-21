@@ -26,7 +26,7 @@ session_start();
         <div class="container">
             <div class="row" style="text-align: center;">
                 <div class="col-md-12">
-                    <form id="c_form-h" method="POST" action="editbeverage.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
+                    <form id="c_form-h" method="POST" action="editbeveragephp.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
                         <div class="form-group row">
                             <label class="col-2 col-form-label" style="color: #685F5F;">Beverage name</label>
                             <div class="col-3">
