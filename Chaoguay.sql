@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2021 at 04:00 PM
+-- Generation Time: Nov 21, 2021 at 08:54 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Chaoguay`
+-- Database: `ChaoGuay`
 --
 
 -- --------------------------------------------------------
@@ -35,6 +35,14 @@ CREATE TABLE `admin` (
   `adminfirstname` varchar(100) NOT NULL,
   `adminlastname` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`idadmin`, `adminuser`, `adminpassword`, `adminfirstname`, `adminlastname`) VALUES
+(1, 'pram', 'pram1234', 'Narathee', 'Bunpanya'),
+(2, 'chao', 'pram0951817222', 'chao', 'guay');
 
 -- --------------------------------------------------------
 
@@ -59,8 +67,8 @@ CREATE TABLE `beverage` (
 
 CREATE TABLE `bookingticket` (
   `idticket` int(11) NOT NULL,
-  `movie_name` varchar(100) NOT NULL,
-  `row` varchar(10) NOT NULL,
+  `movie_name` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `row` varchar(10) CHARACTER SET utf8mb4 NOT NULL,
   `seat_no` int(11) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
@@ -82,24 +90,21 @@ CREATE TABLE `movie` (
   `movie_name` varchar(250) NOT NULL,
   `genre` varchar(45) NOT NULL,
   `minutes` int(20) NOT NULL,
-  `idadmin` int(20) NOT NULL
+  `dateandtime` datetime NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `theatrenumber` int(10) NOT NULL,
+  `theatretype` varchar(100) NOT NULL,
+  `idadmin` int(20) NOT NULL,
+  `linkimage` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `movieschedule`
+-- Dumping data for table `movie`
 --
 
-CREATE TABLE `movieschedule` (
-  `idmovieschedule` int(11) NOT NULL,
-  `moviename` varchar(100) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
-  `status` tinyint(4) NOT NULL,
-  `idpromotion` int(11) NOT NULL,
-  `idmovie` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `movie` (`idmovie`, `movie_name`, `genre`, `minutes`, `dateandtime`, `status`, `theatrenumber`, `theatretype`, `idadmin`, `linkimage`) VALUES
+(6, 'ola', 'ola', 40, '2021-11-19 15:37:27', 0, 3, '4DX', 1, 'uploads/messageImage_1607360555594.jpg'),
+(9, 'Chao', 'Chao', 70, '2021-11-19 15:55:48', 1, 3, '4DX', 1, 'uploads/20200430_140625 2020-04-30 07_24_16.JPG');
 
 -- --------------------------------------------------------
 
@@ -111,6 +116,7 @@ CREATE TABLE `promotion` (
   `idpromotion` int(20) NOT NULL,
   `promotionname` varchar(100) NOT NULL,
   `detail` varchar(200) DEFAULT NULL,
+  `linkimage` varchar(250) NOT NULL,
   `idadmin` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -122,9 +128,9 @@ CREATE TABLE `promotion` (
 
 CREATE TABLE `seat` (
   `idseat` int(11) NOT NULL,
-  `row` varchar(10) NOT NULL,
+  `row` varchar(10) CHARACTER SET utf8mb4 NOT NULL,
   `seat_no` int(11) NOT NULL,
-  `seat_type` varchar(45) NOT NULL,
+  `seat_type` varchar(45) CHARACTER SET utf8mb4 NOT NULL,
   `seat_price` int(11) NOT NULL,
   `idtheatre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -138,7 +144,7 @@ CREATE TABLE `seat` (
 CREATE TABLE `theatre` (
   `idtheatre` int(11) NOT NULL,
   `theatre_no` int(11) NOT NULL,
-  `theatre_type` varchar(45) NOT NULL,
+  `theatre_type` varchar(45) CHARACTER SET utf8mb4 NOT NULL,
   `idseat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -178,14 +184,6 @@ ALTER TABLE `movie`
   ADD KEY `idadmin` (`idadmin`);
 
 --
--- Indexes for table `movieschedule`
---
-ALTER TABLE `movieschedule`
-  ADD PRIMARY KEY (`idmovieschedule`),
-  ADD KEY `idpromotion` (`idpromotion`),
-  ADD KEY `idmovie` (`idmovie`);
-
---
 -- Indexes for table `promotion`
 --
 ALTER TABLE `promotion`
@@ -214,7 +212,7 @@ ALTER TABLE `theatre`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idadmin` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idadmin` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `beverage`
@@ -232,13 +230,7 @@ ALTER TABLE `bookingticket`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `idmovie` int(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `movieschedule`
---
-ALTER TABLE `movieschedule`
-  MODIFY `idmovieschedule` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idmovie` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `promotion`
@@ -283,13 +275,6 @@ ALTER TABLE `bookingticket`
 --
 ALTER TABLE `movie`
   ADD CONSTRAINT `fk_idadmin` FOREIGN KEY (`idadmin`) REFERENCES `admin` (`idadmin`);
-
---
--- Constraints for table `movieschedule`
---
-ALTER TABLE `movieschedule`
-  ADD CONSTRAINT `fk_idmovie` FOREIGN KEY (`idmovie`) REFERENCES `movie` (`idmovie`),
-  ADD CONSTRAINT `fk_idpromotion` FOREIGN KEY (`idpromotion`) REFERENCES `promotion` (`idpromotion`);
 
 --
 -- Constraints for table `promotion`
