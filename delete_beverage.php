@@ -67,7 +67,10 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
                                 }else{
                                     echo "<td class='col-3'>INACTIVE</td>";
                                 }
+                                echo '<td class="col-1"><a href="beverage_delete.php?idfood=' . $row['idfood'] . '">';
+                                echo '<img src="images/delete.png" width="24" height="24"></td>';
                                 
+
                                 
                                 echo "</tr>";
                             }

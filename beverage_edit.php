@@ -18,7 +18,7 @@ session_start();
     <div class="py-5" style="height: 100px;">
         <div class="container">
             <div class="row" style="text-align: left;">
-                <div class="col-md-1"><a class="btn btn-primary" href="beveragemenu.html" style="background-color:#161719; border:1px solid black; color:#161719;"><img src="images/return.png" style="width:40px; height:40px;"></a></div>
+                <div class="col-md-1"><a class="btn btn-primary" href="edit_beverage.php" style="background-color:#161719; border:1px solid black; color:#161719;"><img src="images/return.png" style="width:40px; height:40px;"></a></div>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@ session_start();
         <div class="container">
             <div class="row" style="text-align: center;">
                 <div class="col-md-12">
-                    <form id="c_form-h" method="POST" action="add_beverage.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
+                    <form id="c_form-h" method="POST" action="editbeverage.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
                         <div class="form-group row">
                             <label class="col-2 col-form-label" style="color: #685F5F;">Beverage name</label>
                             <div class="col-3">
@@ -59,7 +59,7 @@ session_start();
                         
 
                         <div class="form-group row">
-                            <input class="form-control" type="submit" name="add" value="ADD" style="background-color:#EDB63C; color:#161719; font-size:25px; margin-top:10%;">
+                            <input class="form-control" type="submit" name="add" value="UPDATE" style="background-color:#EDB63C; color:#161719; font-size:25px; margin-top:10%;">
                         </div>
 
                     </form>
