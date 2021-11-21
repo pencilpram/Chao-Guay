@@ -18,7 +18,7 @@ session_start();
     <div class="py-5">
         <div class="container" style="margin-top: 20%; margin-left:10%; margin-left:16%;">
             <div class="row">
-                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; background-image:'images/ticket.png';border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="booking.html">Booking</a>
+                <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; background-image:'images/ticket.png';border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="booking_home.html">Booking</a>
                 </div>
                 <div class="col-md-2"><a class="btn btn-primary" style="height:100px; width:100px; background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:24%;" href="beveragemenu.html">Beverages</a>
                 </div>
