@@ -25,7 +25,7 @@ session_start();
         <div class="container">
             <div class="row" style="text-align: center;">
                 <div class="col-md-12">
-                    <form id="c_form-h" method="POST" action="insert.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
+                    <form id="c_form-h" method="POST" action="add_movie.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
                         <div class="form-group row">
                             <label class="col-2 col-form-label" style="color: #685F5F;">MOVIE NAME</label>
                             <div class="col-3">
@@ -87,50 +87,6 @@ session_start();
             </div>
         </div>
     </div>
-    <?php
-    $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
-    if (isset($_POST['add'])) {
-        $moviename = $_POST['moviename'];
-        $genre = $_POST['genre'];
-        $minutes = $_POST['minutes'];
-        if ($_POST['status'] == 'ACTIVE') {
-            $status = 1;
-        } else {
-            $status = 0;
-        }
-        $theatrenumber = $_POST['theatrenumber'];
-        $theatretypes = $_POST['theatretypes'];
-        date_default_timezone_set("Asia/Bangkok");
-        //$today = CURRENT_TIMESTAMP();
-        $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["movieimage"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $idadmin = $_SESSION['idadmin'];
-        // Check if image file is a actual image or fake image
-        $check = getimagesize($_FILES["movieimage"]["tmp_name"]);
-        if ($check !== false) {
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-            // if everything is ok, try to upload file
-        } else {
-            if (move_uploaded_file($_FILES["movieimage"]["tmp_name"], $target_file)) {
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-            }
-        }
-        $query1 = "INSERT INTO movie (movie_name,genre,minutes,dateandtime,status,theatrenumber,theatretype,idadmin,linkimage) 
-        VALUES ('$moviename','$genre','$minutes',CURRENT_TIMESTAMP(),'$status','$theatrenumber','$theatretypes','$idadmin','$target_file')";
-        $result1 = $mysqli->query($query1);
-        header("Location: movielist.php");
-        
-    }
-    ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
