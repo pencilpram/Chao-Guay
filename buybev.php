@@ -18,7 +18,7 @@ $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
     <div class="py-5">
         <div class="container">
             <div class="row" style="text-align: left;">
-                <div class="col-md-12"><a class="btn btn-primary" href="beveragemenu.html" style="background-color:#161719; border:1px solid black; color:#161719;"><img src="images/return.png" style="width:40px; height:40px;"></a></div>
+                <div class="col-md-12"><a class="btn btn-primary" href="bevhome.html" style="background-color:#161719; border:1px solid black; color:#161719;"><img src="images/return.png" style="width:40px; height:40px;"></a></div>
             </div>
         </div>
     </div>

@@ -5,6 +5,9 @@ $idmovie = $_GET['idmovie'];
 $query1 = "SELECT * FROM movie WHERE idmovie = $idmovie";
 $result1 = $mysqli->query($query1);
 $row = $result1->fetch_array();
+$query2 = "SELECT * FROM promotion";
+$result2 = $mysqli->query($query2);
+$row1 = $result2->fetch_array();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -20,7 +23,7 @@ $row = $result1->fetch_array();
 <body class="bg-dark" style="font-family: Rationale; text-align:center;text-transform:uppercase;">
     <div class="container">
 
-        <form class="well form-horizontal" method="post" action="checkout.php" id="contact_form">
+        <form class="well form-horizontal" method="post" action="ticket.php" id="contact_form">
             <fieldset>
 
                 <!--Black Widow-->
@@ -50,9 +53,11 @@ $row = $result1->fetch_array();
                             <div class="card-body p-4">
                                 <div class="input-boxes">
 
-
+                                    <div class="input-box"> Movie ID<br>
+                                        <input type="text" name="movieid" value="<?php echo $row['idmovie'] ?>">
+                                    </div><br>
                                     <div class="input-box"> Movie Name <br>
-                                        <span><?php echo $row['movie_name'] ?></span>
+                                        <input type="text" name="moviename" value="<?php echo $row['movie_name'] ?>">
                                     </div><br>
                                     <div class="input-box"> Seat No. <br>
                                         <input type="text" name="seat_no" placeholder="1-30" required>
@@ -61,12 +66,12 @@ $row = $result1->fetch_array();
                                         <input type="text" name="row" placeholder="A-F" required>
                                     </div><br>
                                     <div class="input-box"> Cinema Type <br>
-                                        <span><?php echo $row['theatretype'] ?></span>
+                                        <input type="text" name="theatype" value="<?php echo $row['theatretype'] ?>">
                                     </div><br>
-                                    <div class="input-box"> Cinema <br>
-                                        <span><?php echo $row['theatrenumber'] ?></span>
+                                    <div class=" input-box"> Cinema <br>
+                                        <input type="text" name="theanum" value="<?php echo $row['theatrenumber'] ?>">
                                     </div><br>
-                                    <div class="input-box">Date&Time <br>
+                                    <div class=" input-box">Date&Time <br>
                                         <select class="form-control" name="times">
                                             <option>10.30</option>
                                             <option>11.00</option>
@@ -111,10 +116,10 @@ $row = $result1->fetch_array();
                                 <label>Use Promotion</label>
                                 <select name="promotion" class="form-control selectpicker">
                                     <option value="">Select Promotion</option>
-                                    <option>Wednesday: 100 THB</option>
-                                    <option>Friday Night: 120 THB</option>
-                                    <option>TRUE Card: 99 THB</option>
-                                    <option>AIS/SERENADE: 129 THB</option>
+                                    <option>Wednesday</option>
+                                    <option>Friday</option>
+                                    <option>True Card</option>
+                                    <option>AIS/SERENADE</option>
                                 </select>
                             </div>
                         </div>
@@ -143,23 +148,7 @@ $row = $result1->fetch_array();
     </fieldset>
     </form>
     </div>
-    <?php
-    if (isset($_POST['Submit'])){
-        $moviename = $row['movie_name'];
-        $noseat = $_POST['seat_no'];
-        $rowseat = $_POST['row'];
-        $type = $row['theatretype'];
-        $theatreno = $row['theatrenumber'];
-        $times = $_POST['times'];
-        $promo = $_POST['promotion'];
-        $pay = $_POST['payment'];
-        $idadmin = $_SESSION['idadmin'];
-        
-        
-        $insert = "INSERT INTO bookingticket (movie_name,row,seat_no,date,time,theatre_no,theatretype,idadmin VALUES ($moviename,$rowseat,$noseat,$times,$theatreno,$type,$idadmin)";
-        $insert_result = $mysqli->query($inset);
-    }
-    ?>
+
 </body>
 
 </html>

@@ -1,7 +1,31 @@
 <?php
+session_start();
 $mysqli = new mysqli("localhost", "root", null, "ChaoGuay");
-if (isset($_POST['Submit'])){
-    $idmovie 
+if (isset($_POST['Submit'])) {
+    $moviename = $_POST['moviename'];
+    $noseat = $_POST['seat_no'];
+    $rowseat = $_POST['row'];
+    $type = $_POST['theatype'];
+    $theatreno = $_POST['theanum'];
+    $times = $_POST['times'];
+    if ($_POST['promotion'] == 'Wednesday'){
+        $promo = 3;
+    }elseif ($_POST['promotion'] == 'Friday'){
+        $promo = 4;
+    } elseif ($_POST['promotion'] == 'True Card') {
+        $promo = 5;
+    }else{
+        $promo = 6;
+    }
+    $idseat = $_POST['seat_no'];
+    $idthea = $theatreno;
+    $pay = $_POST['payment'];
+    $idadmin = $_SESSION['idadmin'];
+    date_default_timezone_set("Asia/Bangkok");
+    $date = date('Y-m-d');
+
+    $insert = "INSERT INTO bookingticket (movie_name,row,seat_no,date,time,theatre_no,theatretype,idadmin,idpromotion,idseat,idtheatre VALUES ($moviename,$rowseat,$noseat,$date,$times,$theatreno,$type,$idadmin,$promo,$idseat,$idthea)";
+    $insert_result = $mysqli->query($insert);
 }
 ?>
 <!DOCTYPE html>
@@ -27,7 +51,7 @@ if (isset($_POST['Submit'])){
     </div>
     <div class="py-5">
         <div class="container">
-            
+
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
