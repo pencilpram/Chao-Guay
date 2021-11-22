@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2021 at 08:54 AM
+-- Generation Time: Nov 22, 2021 at 01:37 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `ChaoGuay`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admin2` ()  BEGIN
+    CREATE TABLE admin2(AdminName varchar(200) COLLATE utf8mb4_general_ci NOT NULL, IdAdmin int NOT NULL);
+    INSERT INTO admin2(AdminName,Idadmin)
+    SELECT admin.adminfirstname AS AdminName ,admin.idadmin AS Idadmin FROM admin;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -42,7 +54,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`idadmin`, `adminuser`, `adminpassword`, `adminfirstname`, `adminlastname`) VALUES
 (1, 'pram', 'pram1234', 'Narathee', 'Bunpanya'),
-(2, 'chao', 'pram0951817222', 'chao', 'guay');
+(3, 'pram', 'pram', 'pram', 'pram');
 
 -- --------------------------------------------------------
 
@@ -55,9 +67,16 @@ CREATE TABLE `beverage` (
   `foodname` varchar(100) NOT NULL,
   `prices` int(50) NOT NULL,
   `snackstatus` tinyint(4) NOT NULL,
-  `idadmin` int(20) NOT NULL,
-  `idpromotion` int(20) NOT NULL
+  `beveragetypes` varchar(100) NOT NULL,
+  `idadmin` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `beverage`
+--
+
+INSERT INTO `beverage` (`idfood`, `foodname`, `prices`, `snackstatus`, `beveragetypes`, `idadmin`) VALUES
+(2, 'Coke', 20, 1, 'Drinks', 1);
 
 -- --------------------------------------------------------
 
@@ -71,8 +90,9 @@ CREATE TABLE `bookingticket` (
   `row` varchar(10) CHARACTER SET utf8mb4 NOT NULL,
   `seat_no` int(11) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL,
+  `time` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `theatre_no` int(11) NOT NULL,
+  `theatretype` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
   `idadmin` int(11) NOT NULL,
   `idpromotion` int(11) NOT NULL,
   `idseat` int(11) NOT NULL,
@@ -103,8 +123,8 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`idmovie`, `movie_name`, `genre`, `minutes`, `dateandtime`, `status`, `theatrenumber`, `theatretype`, `idadmin`, `linkimage`) VALUES
-(6, 'ola', 'ola', 40, '2021-11-19 15:37:27', 0, 3, '4DX', 1, 'uploads/messageImage_1607360555594.jpg'),
-(9, 'Chao', 'Chao', 70, '2021-11-19 15:55:48', 1, 3, '4DX', 1, 'uploads/20200430_140625 2020-04-30 07_24_16.JPG');
+(11, 'Ohoo', 'Aha', 50, '2021-11-21 13:54:43', 0, 3, '4DX', 1, 'uploads/Screen Shot 2564-11-19 at 13.47.13.png'),
+(12, 'Shopee', 'Lazada', 130, '2021-11-21 14:00:26', 1, 2, '3D', 1, 'uploads/Screen Shot 2564-10-20 at 23.50.39.png');
 
 -- --------------------------------------------------------
 
@@ -119,6 +139,18 @@ CREATE TABLE `promotion` (
   `linkimage` varchar(250) NOT NULL,
   `idadmin` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `promotion`
+--
+
+INSERT INTO `promotion` (`idpromotion`, `promotionname`, `detail`, `linkimage`, `idadmin`) VALUES
+(1, 'pop', 'popopop', 'popopopopop', 1),
+(2, 'Codomoboys', '', 'uploads/', 1),
+(3, 'Wednesday', ': 100THB', '', 1),
+(4, 'Friday', NULL, '', 1),
+(5, 'True Card', NULL, '', 1),
+(6, 'AIS/SERENADE', NULL, '', 1);
 
 -- --------------------------------------------------------
 
@@ -135,6 +167,42 @@ CREATE TABLE `seat` (
   `idtheatre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `seat`
+--
+
+INSERT INTO `seat` (`idseat`, `row`, `seat_no`, `seat_type`, `seat_price`, `idtheatre`) VALUES
+(1, 'A', 1, 'Normal', 200, 1),
+(2, 'A', 2, 'Normal', 200, 1),
+(3, 'A', 3, 'Normal', 200, 1),
+(4, 'A', 4, 'Normal', 200, 1),
+(5, 'A', 5, 'Normal', 200, 1),
+(6, 'B', 6, 'Normal', 200, 1),
+(7, 'B', 7, 'Normal', 200, 1),
+(8, 'B', 8, 'Normal', 200, 1),
+(9, 'B', 9, 'Normal', 200, 1),
+(10, 'B', 10, 'Normal', 200, 1),
+(11, 'C', 11, 'Normal', 200, 1),
+(12, 'C', 12, 'Normal', 200, 1),
+(13, 'C', 13, 'Normal', 200, 1),
+(14, 'C', 14, 'Normal', 200, 1),
+(15, 'C', 15, 'Normal', 200, 1),
+(16, 'D', 16, 'Premium', 300, 1),
+(17, 'D', 17, 'Premium', 300, 1),
+(18, 'D', 18, 'Premium', 300, 1),
+(19, 'D', 19, 'Premium', 300, 1),
+(20, 'D', 20, 'Premium', 300, 1),
+(21, 'E', 21, 'Premium', 300, 1),
+(22, 'E', 22, 'Premium', 300, 1),
+(23, 'E', 23, 'Premium', 300, 1),
+(24, 'E', 24, 'Premium', 300, 1),
+(25, 'E', 25, 'Premium', 300, 1),
+(26, 'F', 26, 'Honeymoon', 500, 1),
+(27, 'F', 27, 'Honeymoon', 500, 1),
+(28, 'F', 28, 'Honeymoon', 500, 1),
+(29, 'F', 29, 'Honeymoon', 500, 1),
+(30, 'F', 30, 'Honeymoon', 500, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -144,9 +212,18 @@ CREATE TABLE `seat` (
 CREATE TABLE `theatre` (
   `idtheatre` int(11) NOT NULL,
   `theatre_no` int(11) NOT NULL,
-  `theatre_type` varchar(45) CHARACTER SET utf8mb4 NOT NULL,
-  `idseat` int(11) NOT NULL
+  `theatre_type` varchar(45) CHARACTER SET utf8mb4 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `theatre`
+--
+
+INSERT INTO `theatre` (`idtheatre`, `theatre_no`, `theatre_type`) VALUES
+(1, 1, '2D'),
+(2, 2, '2D'),
+(3, 3, '3D'),
+(4, 4, '4DX');
 
 --
 -- Indexes for dumped tables
@@ -163,8 +240,7 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `beverage`
   ADD PRIMARY KEY (`idfood`),
-  ADD KEY `fk1_idadmin` (`idadmin`),
-  ADD KEY `fk2_idpromotion` (`idpromotion`);
+  ADD KEY `fk1_idadmin` (`idadmin`);
 
 --
 -- Indexes for table `bookingticket`
@@ -201,8 +277,7 @@ ALTER TABLE `seat`
 -- Indexes for table `theatre`
 --
 ALTER TABLE `theatre`
-  ADD PRIMARY KEY (`idtheatre`),
-  ADD KEY `idseat` (`idseat`);
+  ADD PRIMARY KEY (`idtheatre`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -212,13 +287,13 @@ ALTER TABLE `theatre`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idadmin` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idadmin` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `beverage`
 --
 ALTER TABLE `beverage`
-  MODIFY `idfood` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfood` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `bookingticket`
@@ -230,25 +305,25 @@ ALTER TABLE `bookingticket`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `idmovie` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idmovie` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `idpromotion` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpromotion` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `seat`
 --
 ALTER TABLE `seat`
-  MODIFY `idseat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idseat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `theatre`
 --
 ALTER TABLE `theatre`
-  MODIFY `idtheatre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idtheatre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -258,8 +333,7 @@ ALTER TABLE `theatre`
 -- Constraints for table `beverage`
 --
 ALTER TABLE `beverage`
-  ADD CONSTRAINT `fk1_idadmin` FOREIGN KEY (`idadmin`) REFERENCES `admin` (`idadmin`),
-  ADD CONSTRAINT `fk2_idpromotion` FOREIGN KEY (`idpromotion`) REFERENCES `promotion` (`idpromotion`);
+  ADD CONSTRAINT `fk1_idadmin` FOREIGN KEY (`idadmin`) REFERENCES `admin` (`idadmin`);
 
 --
 -- Constraints for table `bookingticket`
@@ -286,13 +360,7 @@ ALTER TABLE `promotion`
 -- Constraints for table `seat`
 --
 ALTER TABLE `seat`
-  ADD CONSTRAINT `fk_idtheatre` FOREIGN KEY (`idtheatre`) REFERENCES `theatre` (`idtheatre`);
-
---
--- Constraints for table `theatre`
---
-ALTER TABLE `theatre`
-  ADD CONSTRAINT `fk_idseat` FOREIGN KEY (`idseat`) REFERENCES `seat` (`idseat`);
+  ADD CONSTRAINT `fk1_idtheatre` FOREIGN KEY (`idtheatre`) REFERENCES `theatre` (`idtheatre`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
