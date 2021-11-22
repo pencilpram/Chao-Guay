@@ -18,13 +18,14 @@ if (isset($_POST['Submit'])) {
         $promo = 6;
     }
     $idseat = $_POST['seat_no'];
+    $idmovie = $_POST['movieid'];
     $idthea = $theatreno;
     $pay = $_POST['payment'];
     $idadmin = $_SESSION['idadmin'];
     date_default_timezone_set("Asia/Bangkok");
     $date = date('Y-m-d');
 
-    $insert = "INSERT INTO bookingticket (movie_name,row,seat_no,date,time,theatre_no,theatretype,idadmin,idpromotion,idseat,idtheatre) VALUES ('$moviename','$rowseat','$noseat','$date','$times','$theatreno','$type','$idadmin','$promo','$idseat','$idthea')";
+    $insert = "INSERT INTO bookingticket (movie_name,row,seat_no,date,time,theatre_no,theatretype,idadmin,idpromotion,idseat,idtheatre,idmovie) VALUES ('$moviename','$rowseat','$noseat','$date','$times','$theatreno','$type','$idadmin','$promo','$idseat','$idthea','$idmovie')";
     $insert_result = $mysqli->query($insert);
 }
 ?>
