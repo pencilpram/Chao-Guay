@@ -32,32 +32,32 @@ if ($result) {
             </div>
         </div>
     </div>
-    <div class="py-5">
+    <div class="py-5" style="margin-top: -14%;">
 
         <form class="well form-horizontal" method="post" action="signup.php" id="contact_form">
 
             <div class="container">
                 <!--Black Widow-->
-                <h1 class="text-warning">Movies</h1>
-                <div class="row">
-                    <div class="col-md-4" style="background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:11%;">
-                        <img src="images/josee.jpg" style="width:200px; height:300px;">
-                        <h3>Theatre 1 : 4DX</h3>
+                <span class="text-warning" style="font-size: 50px;">Movies</span>
+                <div class="row" style="margin-top:5%">
+                    <div class="col-md-4" style="background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:7%;">
+                        <img src="images/josee.jpg" style="width:200px; height:300px;"><br>
+                        <span style="font-size: 30px;">Theatre 1 : 4DX</span>
                         <p class="my-3">Josee, the Tiger and the Fish</p>
 
 
                     </div>
-                    <div class="col-md-4" style="background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:11%;">
-                        <img src="images/suicide.jpg" style="width:200px; height:300px;">
-                        <h3>Theatre 2</h3>
-                        <p class="my-3">Suicide Squad</p>
+                    <div class="col-md-4" style="background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:7%;">
+                        <img src="images/suicide.jpg" style="width:200px; height:300px;"><br>
+                        <span style="font-size: 30px;">Theatre 2</span>
+                            <p class="my-3">Suicide Squad</p>
 
                     </div>
-                    <div class="col-md-4" style="background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:11%;">
+                    <div class="col-md-4" style="background-color:#EDB63C; border:1px solid black; color:#161719; position:relative; padding-top:7%;">
                         <?php echo '<td "><a href="checkout.php?idmovie=' . $row['idmovie'] . '">';
                         echo '<img src="images/blackwidow.jpg" width="200" height="300"></td>'; ?>
-                        <h3 class="text-dark">Theatre <?php echo "<td>" . $row["theatrenumber"] . "</td>"; ?> : <?php echo "<td>" . $row["theatretype"] . "</td>"; ?></h3>
-                        <p class="my-3 text-dark"><?php echo "<td>" . $row["movie_name"] . "</td>"; ?></p>
+                        <br><span class="text-dark" style="font-size: 30px;">Theatre <?php echo "<td>" . $row["theatrenumber"] . "</td>"; ?> : <?php echo "<td>" . $row["theatretype"] . "</td>"; ?></h3>
+                        <p class="my-3" style="font-size: 20px;"><?php echo $row["movie_name"] ?></p>
 
                     </div>
                 </div>

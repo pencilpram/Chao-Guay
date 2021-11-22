@@ -31,7 +31,7 @@ $row1 = $result2->fetch_array();
             <div class="py-5">
                 <div class="container">
                     <div class="row" style="text-align: center;">
-                            <div class="col-1"><a class="btn btn-primary" href="home.php" style="background-color:#161719; border:1px solid black; color:#161719;"><img src="images/return.png" style="width:40px; height:40px;"></a></div>
+                            <div class="col-1"><a class="btn btn-primary" href="booking.php" style="background-color:#161719; border:1px solid black; color:#161719;"><img src="images/return.png" style="width:40px; height:40px;"></a></div>
                             <span class="text-warning col-11" style="font-size:50px;right:4%;">Checkout</span>
                     </div>
                 </div>
