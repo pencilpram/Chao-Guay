@@ -8,13 +8,13 @@ if (isset($_POST['Submit'])) {
     $type = $_POST['theatype'];
     $theatreno = $_POST['theanum'];
     $times = $_POST['times'];
-    if ($_POST['promotion'] == 'Wednesday'){
+    if ($_POST['promotion'] == 'Wednesday') {
         $promo = 3;
-    }elseif ($_POST['promotion'] == 'Friday'){
+    } elseif ($_POST['promotion'] == 'Friday') {
         $promo = 4;
     } elseif ($_POST['promotion'] == 'True Card') {
         $promo = 5;
-    }else{
+    } else {
         $promo = 6;
     }
     $idseat = $_POST['seat_no'];
@@ -49,9 +49,15 @@ if (isset($_POST['Submit'])) {
             </div>
         </div>
     </div>
-    <div class="py-5">
-        <div class="container">
-
+    <div class="py-5" style="text-align: center;">
+        <div class="container" style="text-align: center;">
+            <div class="row" style="text-align:center">
+                <img src="images/checked.png" alt="done" style="width: 150px; height:150px; left:43%;position:relative">
+            </div>
+            <br><br><br>
+            <div>
+                <button style="background-color: #EDB63C;color:#161719;font-size:50px">Print</button>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
