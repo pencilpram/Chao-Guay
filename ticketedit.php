@@ -32,7 +32,17 @@ $idticket = $_GET['idticket'];
                 <div class="col-md-12">
                     <form id="c_form-h" method="POST" action="ticketeditphp.php" enctype="multipart/form-data" style="font-size: 25px; text-align:center;">
                         <div class="form-group row">
-                            
+                        <label class="col-2 col-form-label" style="color: #685F5F;">Row</label>
+                            <div class="col-3">
+                                <select class="form-control" style="background-color:#161719; color:#EDB63C; font-size:25px;" name="row">
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                    <option>D</option>
+                                    <option>E</option>
+                                    <option>F</option>
+                                </select>
+                            </div>
                             <label class="col-2 col-form-label" style="color: #685F5F;">Seat No</label>
                             <div class="col-3">
                                 <select class="form-control" style="background-color:#161719; color:#EDB63C; font-size:25px;" name="seatno">
@@ -63,6 +73,7 @@ $idticket = $_GET['idticket'];
                                     <option>25</option>
                                 </select>
                             </div>
+                            
                         </div>
 
                      
